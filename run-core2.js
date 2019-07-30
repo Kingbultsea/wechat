@@ -297,6 +297,6 @@ router.get('/get/word', async (ctx, next) => {
   const data = await db.select('swdata')
   ctx.body = data
 })
-
+console.log('start in 3001')
 app.use(router.routes())
 app.listen(3001)
