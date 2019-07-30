@@ -26,6 +26,17 @@ let loginTime = 0
 //   bot.start()
 // }
 // bot.start()
+
+const unionAccpeter = [
+  { name: ['供通云'], accepter: ['大宗'] },
+  { name: ['雪松地产'], accepter: ['地产'] },
+  { name: ['齐翔腾达'], accepter: ['化工'] },
+  { name: ['松果财富微资讯', '雪松财富', '中江国际信托'], accepter: ['金融'] },
+  { name: ['雪松控股', '雪松招聘'], accepter: ['控股'] },
+  { name: ['雪松文旅', '独克宗花巷', '大研花巷', '西塘花巷', '雪松旅行', '松旅网'], accepter: ['文旅'] },
+  { name: ['雪松社区', '君华物业', '湖南华庭物业管理有限公司', '苏州易通亚信物业管理有限公司', '君华新城物业服务中心', '广州市庆德物业管理有限公司', '永和物业管理', '苏州依士达物业', '福田物业昆山分公司'], accepter: ['社区'] }
+]
+
 function start () {
   bot.on('uuid', uuid => {
     qrcode.generate('https://login.weixin.qq.com/l/' + uuid, {
@@ -110,6 +121,8 @@ function start () {
       const from = _from[1].replace(/<\/?.+?>/g, '') // 删除标签
       console.log('自主推送查询主体', from)
 
+      let accepter = ''
+
       let countKeys = []
 
       keyGroups.forEach(v => {
@@ -158,14 +171,22 @@ function start () {
 
       for (let i in bot.contacts) {
         setTimeout(() => {
-          if (bot.contacts[i].OrignalRemarkName === '大佬') {
-            // wechat 推送
-            bot.sendMsg(`推文标题：\r\n    ${data.Title || title}\r\n\r\n推文主体：\r\n    ${sentor}\r\n\r\n推文警报：\r\n${warningContent}\r\n\r\n推送时间:\r\n    ${date}\r\n\r\n推文链接：${data.Url}`, bot.contacts[i].UserName)
-              .catch(err => {
-                // bot.emit('error', err)
-              })
+          for (let i2 of unionAccpeter) {
+            (i2.name.includes(from) && bot.contacts[i].OrignalNickName === i2.accepter[0]) // .OrignalRemarkName 是人的名称
+              ? bot.sendMsg(`推文标题：\r\n    ${data.Title || title}\r\n\r\n推文主体：\r\n    ${sentor}\r\n\r\n推文警报：\r\n${warningContent}\r\n\r\n推送时间:\r\n    ${date}\r\n\r\n推文链接：${data.Url}`, bot.contacts[i].UserName)
+                .catch(err => {
+                  // bot.emit('error', err)
+                })
+              : ''
           }
-        }, time)
+          // if (bot.contacts[i].OrignalRemarkName === accepter) {
+          //   // wechat 推送
+          //   bot.sendMsg(`推文标题：\r\n    ${data.Title || title}\r\n\r\n推文主体：\r\n    ${sentor}\r\n\r\n推文警报：\r\n${warningContent}\r\n\r\n推送时间:\r\n    ${date}\r\n\r\n推文链接：${data.Url}`, bot.contacts[i].UserName)
+          //     .catch(err => {
+          //       // bot.emit('error', err)
+          //     })
+          // }
+        }, time) // time
         time += 1000
       }
     }).catch(() => {
@@ -173,6 +194,7 @@ function start () {
     })
   }
 }
+
 function dateFormat (date, format) { // yy:mm:ss  yyyy年mmmm分sss秒
   if (!format || typeof format !== 'string') {
     console.error('format is undefiend or type is Error')
@@ -233,7 +255,7 @@ router.get('/qrblock', async (ctx, next) => {
     isLogin = false
     bot.stop ? bot.stop() : ''
   } catch (e) {
-    console.log(e)
+    // console.log(e)
   }
   try {
     // fs.unlinkSync('./sync-data.json')
@@ -300,3 +322,7 @@ router.get('/get/word', async (ctx, next) => {
 console.log('start in 8080')
 app.use(router.routes())
 app.listen(8080)
+
+bot = new Wechat()
+start()
+bot.start()
