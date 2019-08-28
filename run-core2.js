@@ -103,6 +103,7 @@ function start () {
   }
 
   function analyzeContent (data, msg) {
+    console.log(data.Url)
     axios.get(data.Url).then(async res => {
       const keyGroups = await db.select('swdata')
       /* ['雪松控股', '张劲', '张主席', '张老板', '创始人', '主席', '董事局主席', '董事长', '政协委员', '总商会副会长',
