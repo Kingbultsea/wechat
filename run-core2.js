@@ -82,8 +82,13 @@ function start () {
         const userId = msg.FromUserName
         bot._getmpData(userId).then(article => {
           try {
+            let time = 1000
             for (let i of article) {
-              analyzeContent(i, msg)
+              console.log('from article')
+              setTimeout(() => {
+                analyzeContent(i, msg)
+              }, time)
+              time += 2000
             }
           } catch (e) {
             console.log(e)
@@ -173,12 +178,13 @@ function start () {
       for (let i in bot.contacts) {
         setTimeout(() => {
           for (let i2 of unionAccpeter) {
-            (i2.name.includes(from) && bot.contacts[i].OrignalNickName === i2.accepter[0]) // .OrignalRemarkName 是人的名称
-              ? bot.sendMsg(`推文标题：\r\n    ${data.Title || title}\r\n\r\n推文主体：\r\n    ${sentor}\r\n\r\n推文警报：\r\n${warningContent}\r\n\r\n推送时间:\r\n    ${date}\r\n\r\n推文链接：${data.Url}`, bot.contacts[i].UserName)
+            if (i2.name.includes(from) && bot.contacts[i].OrignalNickName === i2.accepter[0]) { // .OrignalRemarkName 是人的名称
+              console.log('push to users')
+              bot.sendMsg(`推文标题：\r\n    ${data.Title || title}\r\n\r\n推文主体：\r\n    ${sentor}\r\n\r\n推文警报：\r\n${warningContent}\r\n\r\n推送时间:\r\n    ${date}\r\n\r\n推文链接：${data.Url}`, bot.contacts[i].UserName)
                 .catch(err => {
                   // bot.emit('error', err)
                 })
-              : ''
+            }
           }
           // if (bot.contacts[i].OrignalRemarkName === accepter) {
           //   // wechat 推送
@@ -190,7 +196,7 @@ function start () {
         }, time) // time
         time += 1000
       }
-    }).catch((e) => {
+    }).catch(e => {
       console.log('not url', e)
     })
   }
