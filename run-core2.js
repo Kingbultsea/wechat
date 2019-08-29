@@ -120,7 +120,7 @@ function start () {
       // 从哪推送
       const _from = /<ahref="javascript:void\(0\);"id="js_name">(.+?)<\/a>/.exec(res.data.replace(/\s+/g, ''))
       const from = _from[1].replace(/<\/?.+?>/g, '') // 删除标签
-      console.log('自主推送查询主体', from)
+      console.log('push', from)
 
       let accepter = ''
 
@@ -190,8 +190,8 @@ function start () {
         }, time) // time
         time += 1000
       }
-    }).catch(() => {
-      console.log('不是有效的域名')
+    }).catch((e) => {
+      console.log('not url', e)
     })
   }
 }
