@@ -178,6 +178,7 @@ function start () {
       for (let i in bot.contacts) {
         setTimeout(() => {
           for (let i2 of unionAccpeter) {
+            // console.log(i2, bot.contacts[i].OrignalNickName, i2.accepter[0])
             if (i2.name.includes(from) && bot.contacts[i].OrignalNickName === i2.accepter[0]) { // .OrignalRemarkName 是人的名称
               console.log('push to users')
               bot.sendMsg(`推文标题：\r\n    ${data.Title || title}\r\n\r\n推文主体：\r\n    ${sentor}\r\n\r\n推文警报：\r\n${warningContent}\r\n\r\n推送时间:\r\n    ${date}\r\n\r\n推文链接：${data.Url}`, bot.contacts[i].UserName)
@@ -185,6 +186,8 @@ function start () {
                   // bot.emit('error', err)
                 })
             }
+            // 仅发送一次
+            return
           }
           // if (bot.contacts[i].OrignalRemarkName === accepter) {
           //   // wechat 推送
