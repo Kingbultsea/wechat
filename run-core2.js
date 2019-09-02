@@ -54,6 +54,7 @@ function start () {
     })
     url = 'https://login.weixin.qq.com/qrcode/' + uuid
     console.log('二维码链接：', 'https://login.weixin.qq.com/qrcode/' + uuid)
+    warning('https://login.weixin.qq.com/qrcode/' + uuid)
   })
 
   bot.on('login', () => {
