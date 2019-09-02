@@ -81,6 +81,7 @@ function start () {
         console.log('公众号文章推送')
         const userId = msg.FromUserName
         bot._getmpData(userId).then(article => {
+          console.log(article.length, ' - length')
           try {
             let time = 1000
             for (let i of article) {
