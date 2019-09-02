@@ -12,15 +12,6 @@ let url = null
 let isLogin = false
 let loginTime = 0
 
-function warning (content) {
-  const payload = {
-    'text': content
-  }
-  superAgent.post('https://hook.bearychat.com/=bwGt6/incoming/ed03000e48928b97fdedd9be9ebdac91').send(payload).set('Accept', 'application/json').end(() => {
-    // console.log(res.body)
-  })
-}
-
 // fs.unlinkSync('./sync-data.json')
 // try {
 //   bot = new Wechat()
@@ -53,8 +44,7 @@ function start () {
       small: true
     })
     url = 'https://login.weixin.qq.com/qrcode/' + uuid
-    console.log('二维码链接：', 'https://login.weixin.qq.com/qrcode/' + uuid)
-    warning('https://login.weixin.qq.com/qrcode/' + uuid)
+    console.log('qrBlock link：', 'https://login.weixin.qq.com/qrcode/' + uuid)
   })
 
   bot.on('login', () => {
@@ -83,6 +73,7 @@ function start () {
 
   bot.on('message', msg => {
     console.log(`----------${msg.getDisplayTime()}----------`)
+    isLogin = true
 
     switch (msg.MsgType) {
       case bot.CONF.MSGTYPE_TEXT:
@@ -92,12 +83,11 @@ function start () {
         console.log('公众号文章推送')
         const userId = msg.FromUserName
         bot._getmpData(userId).then(article => {
-          console.log(article.length, ' - length')
-          warning(JSON.stringify(article))
+          console.log(article.length, ' - lengthArticle')
           try {
             let time = 1000
             for (let i of article) {
-              console.log('from article')
+              console.log(i.Url.length.slice(-10), Object.keys(i))
               setTimeout(() => {
                 analyzeContent(i, msg)
               }, time)
@@ -121,7 +111,6 @@ function start () {
   }
 
   function analyzeContent (data, msg) {
-    console.log(data.Url)
     axios.get(data.Url).then(async res => {
       const keyGroups = await db.select('swdata')
       /* ['雪松控股', '张劲', '张主席', '张老板', '创始人', '主席', '董事局主席', '董事长', '政协委员', '总商会副会长',

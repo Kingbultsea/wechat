@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9d6e8263-3bea-4898-be6b-dff78d4da41f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run-core2.js" beforeDir="false" afterPath="$PROJECT_DIR$/run-core2.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -60,14 +59,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="7527" />
+          <entry key="js" value="7582" />
           <entry key="json" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="35" />
-          <entry key="JavaScript" value="7527" />
+          <entry key="JavaScript" value="7582" />
         </counts>
       </usages-collector>
     </session>
@@ -77,8 +76,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/run-core2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="56" column="56" selection-start-line="56" selection-start-column="56" selection-end-line="56" selection-end-column="56" />
+            <state relative-caret-position="184">
+              <caret line="311" column="9" selection-start-line="311" selection-start-column="6" selection-end-line="311" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -160,7 +159,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setTimeo</find>
       <find>bot</find>
       <find>_getPollingMessage</find>
       <find>set</find>
@@ -190,6 +188,7 @@
       <find>emit</find>
       <find>emit('message'</find>
       <find>check</find>
+      <find>war</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -233,8 +232,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="784" />
-    <option name="y" value="334" />
+    <option name="x" value="300" />
+    <option name="y" value="323" />
     <option name="width" value="2221" />
     <option name="height" value="954" />
   </component>
@@ -321,12 +320,12 @@
       <workItem from="1564370945513" duration="3357000" />
       <workItem from="1564454135227" duration="599000" />
       <workItem from="1564462469124" duration="9318000" />
-      <workItem from="1567045822575" duration="13523000" />
+      <workItem from="1567045822575" duration="14206000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129008000" />
+    <option name="totallyTimeSpent" value="129691000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -338,7 +337,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="784" y="334" width="2221" height="954" extended-state="0" />
+    <frame x="300" y="323" width="2221" height="954" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33093202" />
@@ -506,8 +505,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/run-core2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="56" column="56" selection-start-line="56" selection-start-column="56" selection-end-line="56" selection-end-column="56" />
+        <state relative-caret-position="184">
+          <caret line="311" column="9" selection-start-line="311" selection-start-column="6" selection-end-line="311" selection-end-column="9" />
         </state>
       </provider>
     </entry>
