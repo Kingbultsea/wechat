@@ -185,9 +185,9 @@ function start () {
                 .catch(err => {
                   // bot.emit('error', err)
                 })
+              // 仅发送一次
+              return
             }
-            // 仅发送一次
-            return
           }
           // if (bot.contacts[i].OrignalRemarkName === accepter) {
           //   // wechat 推送
