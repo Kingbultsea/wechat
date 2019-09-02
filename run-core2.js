@@ -3,6 +3,7 @@ const Wechat = require('./src/wechat.js')
 const qrcode = require('qrcode-terminal')
 const fs = require('fs')
 // const request = require('request')
+const superAgent = require('superagent')
 const axios = require('axios')
 const db = require('./src/database.js')
 
@@ -10,6 +11,15 @@ let bot
 let url = null
 let isLogin = false
 let loginTime = 0
+
+function warning (content) {
+  const payload = {
+    'text': content
+  }
+  superAgent.post('https://hook.bearychat.com/=bwGt6/incoming/ed03000e48928b97fdedd9be9ebdac91').send(payload).set('Accept', 'application/json').end(() => {
+    // console.log(res.body)
+  })
+}
 
 // fs.unlinkSync('./sync-data.json')
 // try {
@@ -82,6 +92,7 @@ function start () {
         const userId = msg.FromUserName
         bot._getmpData(userId).then(article => {
           console.log(article.length, ' - length')
+          warning(JSON.stringify(article))
           try {
             let time = 1000
             for (let i of article) {
