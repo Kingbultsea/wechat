@@ -102,6 +102,8 @@ function start () {
   })
 
   function sendUrlMesage (msg) {
+    console.log(msg)
+    console.log(msg.content)
     const data = {
       Url: msg.OriginalContent.replace(/&amp;/g, '&'),
       Title: undefined
