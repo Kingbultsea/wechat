@@ -102,6 +102,12 @@ function start () {
   })
 
   function sendUrlMesage (msg) {
+    console.log(
+      msg.OriginalContent.replace(/&amp;/g, '&').replace(/.+\>/, '')
+    )
+    console.log(
+      'https://fanyi.baidu.com/?aldtype=16047#zh/en/%E5%BF%AB%E7%85%A7'
+    )
     const data = {
       Url: msg.OriginalContent.replace(/&amp;/g, '&').replace(/.+\>/, ''),
       Title: undefined
@@ -170,12 +176,12 @@ function start () {
       let warningContent = countKeys.length === 0 ? '    敏感词：无' : countKeys.join('\r\n')
 
       // 数据库插入
-      db.insert('lsdata', {
-        date: +msg.CreateTime,
-        user: sentor,
-        url: data.Url,
-        warning: warningContent
-      })
+      // db.insert('lsdata', {
+      //   date: +msg.CreateTime,
+      //   user: sentor,
+      //   url: data.Url,
+      //   warning: warningContent
+      // })
 
       for (let i in bot.contacts) {
         setTimeout(() => {
