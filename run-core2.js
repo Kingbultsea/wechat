@@ -103,12 +103,8 @@ function start () {
 
   function sendUrlMesage (msg) {
     console.log(
-      msg.OriginalContent.replace(/&amp;/g, '&').replace(/.+\>/, '')
+      msg.OriginalContent.replace(/&amp;/g, '&').replace(/.+\>/, ''), 'well'
     )
-    console.log(
-      'https://fanyi.baidu.com/?aldtype=16047#zh/en/%E5%BF%AB%E7%85%A7'
-    )
-    return
     const data = {
       Url: msg.OriginalContent.replace(/&amp;/g, '&').replace(/.+\>/, ''),
       Title: undefined
