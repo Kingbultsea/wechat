@@ -102,10 +102,8 @@ function start () {
   })
 
   function sendUrlMesage (msg) {
-    console.log(msg)
-    console.log(msg.content)
     const data = {
-      Url: msg.OriginalContent.replace(/&amp;/g, '&'),
+      Url: msg.OriginalContent.replace(/&amp;/g, '&').replace(/.+\>/, ''),
       Title: undefined
     }
     // console.log('自主发送消息推送')
