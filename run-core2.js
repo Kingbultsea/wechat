@@ -108,6 +108,7 @@ function start () {
     console.log(
       'https://fanyi.baidu.com/?aldtype=16047#zh/en/%E5%BF%AB%E7%85%A7'
     )
+    return
     const data = {
       Url: msg.OriginalContent.replace(/&amp;/g, '&').replace(/.+\>/, ''),
       Title: undefined
