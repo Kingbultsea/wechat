@@ -87,7 +87,7 @@ function start () {
           try {
             let time = 1000
             for (let i of article) {
-              console.log(i.Url.length.slice(-10), Object.keys(i))
+              // console.log(i.Url.length.slice(-10), Object.keys(i))
               setTimeout(() => {
                 analyzeContent(i, msg)
               }, time)
