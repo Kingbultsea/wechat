@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d6e8263-3bea-4898-be6b-dff78d4da41f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run-core2.js" beforeDir="false" afterPath="$PROJECT_DIR$/run-core2.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,40 +18,6 @@
         <option value="JavaScript File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>bot</find>
-      <find>_getPollingMessage</find>
-      <find>set</find>
-      <find>SYNCCHECK_RET_LOGOUT</find>
-      <find>setPollingMessageGetter</find>
-      <find>心跳</find>
-      <find>isLogin</find>
-      <find>5s后</find>
-      <find>restart</find>
-      <find>logout</find>
-      <find>msg</find>
-      <find>emit('messgae')</find>
-      <find>message</find>
-      <find>'message'</find>
-      <find>自主</find>
-      <find>LoginIng</find>
-      <find>loginTime</find>
-      <find>value</find>
-      <find>---------</find>
-      <find>start</find>
-      <find>url</find>
-      <find>大佬</find>
-      <find>1000</find>
-      <find>5</find>
-      <find>状态同步</find>
-      <find>登出成功</find>
-      <find>emit</find>
-      <find>emit('message'</find>
-      <find>check</find>
-      <find>war</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -123,7 +90,10 @@
       <workItem from="1564454135227" duration="599000" />
       <workItem from="1564462469124" duration="9318000" />
       <workItem from="1567045822575" duration="14206000" />
-      <workItem from="1568800746294" duration="755000" />
+      <workItem from="1568800746294" duration="1944000" />
+      <workItem from="1568807421399" duration="4761000" />
+      <workItem from="1568896929577" duration="291000" />
+      <workItem from="1571215479300" duration="4549000" />
     </task>
     <servers />
   </component>
@@ -156,7 +126,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
