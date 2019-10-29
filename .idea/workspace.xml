@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d6e8263-3bea-4898-be6b-dff78d4da41f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/run-core2.js" beforeDir="false" afterPath="$PROJECT_DIR$/run-core2.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,7 +93,9 @@
       <workItem from="1568800746294" duration="1944000" />
       <workItem from="1568807421399" duration="4761000" />
       <workItem from="1568896929577" duration="291000" />
-      <workItem from="1571215479300" duration="4549000" />
+      <workItem from="1571215479300" duration="5941000" />
+      <workItem from="1571918664649" duration="620000" />
+      <workItem from="1572341698859" duration="824000" />
     </task>
     <servers />
   </component>

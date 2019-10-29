@@ -3,7 +3,7 @@ const Wechat = require('./src/wechat.js')
 const qrcode = require('qrcode-terminal')
 const fs = require('fs')
 // const request = require('request')
-const superAgent = require('superagent')
+// const superAgent = require('superagent')
 const axios = require('axios')
 const db = require('./src/database.js')
 
@@ -74,13 +74,13 @@ function start () {
   bot.on('message', msg => {
     console.log(`----------${msg.getDisplayTime()}----------`)
     isLogin = true
-
+    console.log('message check ---')
     switch (msg.MsgType) {
       case bot.CONF.MSGTYPE_TEXT:
         sendUrlMesage(msg)
         break
       case 49:
-        console.log('公众号文章推送')
+        console.log('Public number article push')
         const userId = msg.FromUserName
         bot._getmpData(userId).then(article => {
           console.log(article.length, ' - lengthArticle')
@@ -132,7 +132,7 @@ function start () {
       const from = _from[1].replace(/<\/?.+?>/g, '') // 删除标签
       console.log('push', from)
 
-      let accepter = ''
+      // let accepter = ''
 
       let countKeys = []
 
