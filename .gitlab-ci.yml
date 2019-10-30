@@ -1,0 +1,12 @@
+stages:
+  - build
+  - deploy
+build:
+  stage: build
+  script:
+    - echo "发布中...."
+    - cnpm install
+  only:
+    - master
+  tags:
+    - shell
