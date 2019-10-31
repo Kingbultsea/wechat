@@ -3,7 +3,7 @@ stages:
 build:
   stage: build
   script:
-    - echo "发布中...."
+    - echo "发布中..."
     - cnpm install
   only:
     - master
