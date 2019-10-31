@@ -8,7 +8,6 @@ before_install:
   - npm install
 
 script:
-  - node run-core2.js
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t hodor123/hello-docker:latest .
   - docker push hodor123/hello-docker:latest
