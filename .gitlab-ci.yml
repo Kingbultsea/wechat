@@ -1,11 +1,17 @@
-stages:
-  - build
+image: docker:stable
+
+services:
+  - docker:dind
+
+before_script:
+  - docker login -hodor123 -p<qq89427157>
+
 build:
   stage: build
   script:
-    - echo "发布中..."
-    - cnpm install
+    - docker build -t "wechat/test:3.3" .
+    - docker push wechat/test:3.3
   only:
     - master
   tags:
-    - shell
+    - docker
