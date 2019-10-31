@@ -31,7 +31,7 @@
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="E:/heartide/frontend-wangjianhai/huawei-youhui" />
+    <property name="last_opened_file_path" value="E:/heartideProduct/frontend-wangjianhai/mp-activity-invite" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
@@ -94,7 +94,8 @@
       <workItem from="1568896929577" duration="291000" />
       <workItem from="1571215479300" duration="5941000" />
       <workItem from="1571918664649" duration="620000" />
-      <workItem from="1572341698859" duration="5354000" />
+      <workItem from="1572341698859" duration="5988000" />
+      <workItem from="1572489247840" duration="1371000" />
     </task>
     <servers />
   </component>
