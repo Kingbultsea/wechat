@@ -31,7 +31,7 @@
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hello-dcoker" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
@@ -98,7 +98,8 @@
       <workItem from="1572341698859" duration="5988000" />
       <workItem from="1572489247840" duration="3404000" />
       <workItem from="1572508099057" duration="13000" />
-      <workItem from="1572511471121" duration="15697000" />
+      <workItem from="1572511471121" duration="17162000" />
+      <workItem from="1572796279430" duration="5520000" />
     </task>
     <servers />
   </component>
