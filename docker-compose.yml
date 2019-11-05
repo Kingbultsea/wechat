@@ -4,10 +4,4 @@ services:
     container_name: hello-docker2
     image: hodor123/hello-docker2:1.0.2
     ports:
-      - "8089:8087"
-    deploy:
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 120s
+      - "8088:80"
