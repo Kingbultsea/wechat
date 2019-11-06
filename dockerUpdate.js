@@ -13,8 +13,8 @@ app.use(router.routes())
 //   'docker-compose up -d'
 // ]
 
-router.post('/wechat', ctx => {
-  console.log(ctx)
+router.post('/wechat', res => {
+  console.log(res.body)
 })
 
 // process.exec('docker-compose pull info', () => {
