@@ -16,7 +16,7 @@ app.use(bodyParser())
 
 // eslint-disable-next-line handle-callback-err
 router.post('/wechat', ctx => {
-  console.log(ctx.response.body)
+  console.log(ctx.response.body, ctx.request.body)
 })
 
 // process.exec('docker-compose pull info', () => {
