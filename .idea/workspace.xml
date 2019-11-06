@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d6e8263-3bea-4898-be6b-dff78d4da41f" name="Default Changelist" comment="" />
+    <list default="true" id="9d6e8263-3bea-4898-be6b-dff78d4da41f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dockerUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/dockerUpdate.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +101,7 @@
       <workItem from="1572511471121" duration="17162000" />
       <workItem from="1572796279430" duration="6666000" />
       <workItem from="1572921556684" duration="12717000" />
-      <workItem from="1573010540899" duration="18908000" />
+      <workItem from="1573010540899" duration="19178000" />
     </task>
     <servers />
   </component>
