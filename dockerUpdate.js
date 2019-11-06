@@ -41,8 +41,8 @@ function parsePostData (ctx) {
         postdata += data
       })
       ctx.req.addListener('end', () => {
-        let parseData = parseQueryStr(postdata)
-        resolve(parseData)
+        // let parseData = parseQueryStr(postdata)  json 暂时不需要key value
+        resolve(postdata)
       })
     } catch (err) {
       reject(err)
