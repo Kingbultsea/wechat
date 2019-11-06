@@ -13,7 +13,8 @@ app.use(router.routes())
 //   'docker-compose up -d'
 // ]
 
-router.post('/wechat', res => {
+// eslint-disable-next-line handle-callback-err
+router.post('/wechat', (err, res) => {
   console.log(res.body)
 })
 
