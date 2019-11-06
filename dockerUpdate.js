@@ -7,6 +7,7 @@ const router = new Router()
 
 app.use(router.routes())
 app.use(bodyParser())
+app.use(router.routes())
 // const instruct = [
 //   'docker-compose pull',
 //   'docker-compose stop',
