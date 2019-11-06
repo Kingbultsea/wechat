@@ -18,6 +18,13 @@ router.post('/wechat', async ctx => {
   console.log(
     JSON.parse(data)
   )
+  ctx.response.status = 200
+  ctx.response.body = JSON.stringify({
+    'state': 'success',
+    'description': '387 tests PASSED',
+    'context': 'Continuous integration by Acme CI',
+    'target_url': 'http://ci.acme.com/results/afd339c1c3d27'
+  })
   // console.log(Object.getOwnPropertyNames(ctx), Object.getOwnPropertyNames(ctx.request))
 })
 
