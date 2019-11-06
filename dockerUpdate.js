@@ -1,12 +1,9 @@
 // const process = require('child_process')
 const Koa = require('koa')
 const Router = require('koa-router')
-const bodyParser = require('koa-bodyparser')
 const app = new Koa()
 const router = new Router()
 
-app.use(router.routes())
-app.use(bodyParser())
 app.use(router.routes())
 // const instruct = [
 //   'docker-compose pull',
@@ -16,9 +13,42 @@ app.use(router.routes())
 // ]
 
 // eslint-disable-next-line handle-callback-err
-router.post('/wechat', ctx => {
-  console.log(ctx.response.body, ctx.request.body)
+router.post('/wechat', async ctx => {
+  const data = await parsePostData(ctx)
+  console.log(
+    data,
+    ctx.params
+  )
+  // console.log(Object.getOwnPropertyNames(ctx), Object.getOwnPropertyNames(ctx.request))
 })
+
+function parseQueryStr( queryStr ) {
+  let queryData = {}
+  let queryStrList = queryStr.split('&')
+  console.log( queryStrList )
+  for (  let [ index, queryStr ] of queryStrList.entries()  ) {
+    let itemList = queryStr.split('=')
+    queryData[ itemList[0] ] = decodeURIComponent(itemList[1])
+  }
+  return queryData
+}
+
+function parsePostData( ctx ) {
+  return new Promise((resolve, reject) => {
+    try {
+      let postdata = ''
+      ctx.req.addListener('data', data => {
+        postdata += data
+      })
+      ctx.req.addListener("end",function(){
+        let parseData = parseQueryStr( postdata )
+        resolve( parseData )
+      })
+    } catch ( err ) {
+      reject(err)
+    }
+  })
+}
 
 // process.exec('docker-compose pull info', () => {
 // })
