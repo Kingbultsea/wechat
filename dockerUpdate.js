@@ -16,7 +16,7 @@ app.use(router.routes())
 router.post('/wechat', async ctx => {
   const data = await parsePostData(ctx)
   console.log(
-    JSON.parse(data[0]),
+    data[0],
     ctx.params
   )
   // console.log(Object.getOwnPropertyNames(ctx), Object.getOwnPropertyNames(ctx.request))
