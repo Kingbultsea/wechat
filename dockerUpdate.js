@@ -1,11 +1,12 @@
 // const process = require('child_process')
 const Koa = require('koa')
 const Router = require('koa-router')
-
+const bodyParser = require('koa-bodyparser')
 const app = new Koa()
 const router = new Router()
-app.use(router.routes())
 
+app.use(router.routes())
+app.use(bodyParser())
 // const instruct = [
 //   'docker-compose pull',
 //   'docker-compose stop',
