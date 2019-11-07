@@ -8,12 +8,12 @@ app.use(router.routes())
 
 const IMAGES_NAME = 'hello-docker2'
 
-// const instruct = [
-//   'docker-compose pull',
-//   'docker-compose stop',
-//   'docker-compose rm',
-//   'docker-compose up -d'
-// ]
+const instruct = [
+  'docker-compose pull',
+  'docker-compose stop',
+  'docker-compose rm',
+  'docker-compose up -d'
+]
 
 // eslint-disable-next-line handle-callback-err
 router.post('/wechat', async ctx => {
@@ -23,6 +23,8 @@ router.post('/wechat', async ctx => {
   )
   data = JSON.parse(data)
   if (data.repository.namespace === 'hodor123' && data.repository.name === IMAGES_NAME) {
+    process.exec('docker-compose pull info', () => {
+    })
     ctx.response.status = 200
     ctx.response.body = JSON.stringify({
       'state': 'success',
