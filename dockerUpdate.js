@@ -5,6 +5,9 @@ const app = new Koa()
 const router = new Router()
 
 app.use(router.routes())
+
+const IMAGES_NAME = 'hello-docker2'
+
 // const instruct = [
 //   'docker-compose pull',
 //   'docker-compose stop',
@@ -18,13 +21,15 @@ router.post('/wechat', async ctx => {
   console.log(
     JSON.parse(data)
   )
-  ctx.response.status = 200
-  ctx.response.body = JSON.stringify({
-    'state': 'success',
-    'description': '387 tests PASSED',
-    'context': 'Continuous integration by Acme CI',
-    'target_url': 'http://ci.acme.com/results/afd339c1c3d27'
-  })
+  if (data.repository.namespace === 'hodor123' && data.repository.name === IMAGES_NAME) {
+    ctx.response.status = 200
+    ctx.response.body = JSON.stringify({
+      'state': 'success',
+      'description': '387 tests PASSED',
+      'context': 'Continuous integration by Acme CI',
+      'target_url': 'http://ci.acme.com/results/afd339c1c3d27'
+    })
+  }
   // console.log(Object.getOwnPropertyNames(ctx), Object.getOwnPropertyNames(ctx.request))
 })
 
