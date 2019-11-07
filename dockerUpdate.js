@@ -17,10 +17,11 @@ const IMAGES_NAME = 'hello-docker2'
 
 // eslint-disable-next-line handle-callback-err
 router.post('/wechat', async ctx => {
-  const data = await parsePostData(ctx)
+  let data = await parsePostData(ctx)
   console.log(
     JSON.parse(data)
   )
+  data = JSON.parse(data)
   if (data.repository.namespace === 'hodor123' && data.repository.name === IMAGES_NAME) {
     ctx.response.status = 200
     ctx.response.body = JSON.stringify({
