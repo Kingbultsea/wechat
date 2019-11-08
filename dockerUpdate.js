@@ -20,8 +20,10 @@ router.post('/wechat', async ctx => {
   let data = await parsePostData(ctx)
   data = JSON.parse(data)
   if (data.repository.namespace === 'hodor123' && data.repository.name === IMAGES_NAME) {
-    process.exec(instruct.join('&'), (err) => {
-      console.log('process done work', err)
+    process.exec(instruct.join('&'), err => {
+      err
+        ? console.log(err)
+        : console.log('process done work', err)
     })
     ctx.response.status = 200
     ctx.response.body = JSON.stringify({

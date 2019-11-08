@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9d6e8263-3bea-4898-be6b-dff78d4da41f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dockerUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/dockerUpdate.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +104,8 @@
       <workItem from="1572921556684" duration="12717000" />
       <workItem from="1573010540899" duration="20085000" />
       <workItem from="1573098161672" duration="2730000" />
-      <workItem from="1573131224788" duration="2572000" />
+      <workItem from="1573131224788" duration="3562000" />
+      <workItem from="1573189161677" duration="1491000" />
     </task>
     <servers />
   </component>
