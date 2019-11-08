@@ -3,7 +3,11 @@ node_js:
   - "10"
 services:
   - docker
-install: false # Skip installation
+# install: true # Skip installation
+
+cache:
+  directories:
+    - node_modules
 
 before_install:
   - npm install
