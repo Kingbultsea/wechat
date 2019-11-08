@@ -3,10 +3,9 @@ node_js:
   - "10"
 services:
   - docker
-install: true # Skip installation
+install: false # Skip installation
 
 before_install:
-  - npm i -g npm@4
   - npm install
 
 script:
