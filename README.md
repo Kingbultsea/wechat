@@ -47,7 +47,7 @@ docker-compose up
 
 #### 查询任意接口,是否成功
 ```shell script
-curl 127.0.0.1:8080/nowdata
+curl 127.0.0.1:8088/nowdata
 ```
 
 
