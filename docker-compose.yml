@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   info:
-    container_name: hello-docker2
-    image: hodor123/hello-docker2:latest
+    container_name: hello-wechat
+    image: wechat:latest
     ports:
-      - "8088:80"
+      - "8088:8080"

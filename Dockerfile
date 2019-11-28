@@ -1,5 +1,14 @@
-FROM nginx
+FROM node:10-slim
 
-COPY ./index.html /usr/share/nginx/html/index.html
+WORKDIR /project
 
-EXPOSE 80
+COPY . ./
+
+RUN npm install --registry=https://registry.npm.taobao.org
+
+ENV HOST 0.0.0.0
+ENV PORT 8080
+
+EXPOSE 81
+
+CMD [ "npm", "run", "core2" ]

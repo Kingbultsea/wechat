@@ -304,7 +304,18 @@ router.get('/nowdata', (ctx, next) => {
 })
 
 router.get('/lsdata', async (ctx, next) => {
-  const dbData = await db.select('lsdata')
+  let dbData
+  try {
+    dbData = await db.select('lsdata')
+  } catch (e) {
+    console.log(e)
+    ctx.body = {
+      status: 5,
+      data: e,
+      mesg: 'database error'
+    }
+    return
+  }
   const submitData = []
   for (let i of dbData) {
     submitData.push({
