@@ -121,7 +121,7 @@ function start () {
           '大连金融资产交易所', '正勤金融', '雪松普惠', '轻松盈', '广州证行互联网金融信息服务有限公司',
           '三个万亿', '三万亿', '水密舱', '100%誓言', '强根造血', '毕节30亿扶贫', '旅游扶贫', '文旅扶贫', '产业扶贫', '六大产业集团', '供通云', '雪松社区', '雪松系',
           '李克强', '汪洋', '王沪宁', '赵乐际', '韩正', '栗战书'] */ // 抓取推送文章的关键词
-      const _content = /<divclass="rich_media_content"id="js_content">(.+?)<\/div>/g.exec(res.data.replace(/\s+/g, ''))
+      const _content = /<divclass="rich_media_content"id="js_content".*?>(.+?)<\/div>/g.exec(res.data.replace(/\s+/g, ''))
       const content = _content[1].replace(/<\/?.+?>/g, '') // 删除标签
 
       const _title = /<h2class="rich_media_title"id="activity-name">(.+?)<\/h2>/.exec(res.data.replace(/\s+/g, ''))
