@@ -12,6 +12,7 @@ let url = null
 let isLogin = false
 let loginTime = 0
 
+let reload = undefined
 // fs.unlinkSync('./sync-data.json')
 // try {
 //   bot = new Wechat()
@@ -39,6 +40,11 @@ const unionAccpeter = [
 ]
 
 function start () {
+  reload = setInterval(() => {
+    // 每30分钟重登一次
+    bot.restart()
+  }, 1000 * 60 * 30)
+
   bot.on('uuid', uuid => {
     qrcode.generate('https://login.weixin.qq.com/l/' + uuid, {
       small: true
