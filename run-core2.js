@@ -43,7 +43,7 @@ function start () {
   reload = setInterval(() => {
     // 每30分钟重登一次
     bot.restart()
-  }, 1000 * 60 * 30)
+  }, 1000 * 60 * 20)
 
   bot.on('uuid', uuid => {
     qrcode.generate('https://login.weixin.qq.com/l/' + uuid, {
