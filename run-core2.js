@@ -61,6 +61,7 @@ function start () {
         bot = new Wechat()
       }
       bot.start()
+      bot.reload()
     }, 1500)
   }, 1000 * 60 * 20)
 
