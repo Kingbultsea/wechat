@@ -41,28 +41,6 @@ const unionAccpeter = [
 
 function start () {
   reload = setInterval(() => {
-    console.log('reload func')
-    // 每32分钟重登一次
-    try {
-    } catch (e) {
-      // console.log(e)
-    }
-    try {
-      // fs.unlinkSync('./sync-data.json')
-    } catch (e) {
-    }
-    setTimeout(() => {
-      // bot = new Wechat()
-      // start()
-      // bot.start()
-      try {
-        bot = new Wechat(require('./sync-data.json'))
-      } catch (e) {
-        bot = new Wechat()
-      }
-      bot.start()
-      bot.reload()
-    }, 1500)
   }, 1000 * 60 * 20)
 
   bot.on('uuid', uuid => {
@@ -374,6 +352,10 @@ console.log('start in 8080')
 app.use(router.routes())
 app.listen(8080)
 
-bot = new Wechat()
+try {
+  bot = new Wechat(require('./sync-data.json'))
+} catch (e) {
+  bot = new Wechat()
+}
 start()
 bot.start()
