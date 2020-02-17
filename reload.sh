@@ -1,54 +1,21 @@
-#!/bin/bash
-NODE=`which node`
-PID_FILE="./koa.pid"
-LOG_NAME="./koa.log"
-PATH=`/bin/pwd`
-INDEX="$PATH/index.js"
-ACTION=$1
-#echo $INDEX
-start(){
-if [ -f $PID_FILE ];then
-   echo " process is  already staring! "
-else
-  echo "node start ======"
-  $NODE $INDEX >> $LOG_NAME 2>&1 &  #将调试信息写入文件，并以后台的方式运行
-  if [ $? -eq 0 ];then
-   echo $! > $PID_FILE #将当前进程写入pid文件
-    echo "node start successfully!"
-  else
-    echo "node start failed!"
-  fi
-fi
-}
 
-stop(){
-if [ ! -f $PID_FILE ];then
-  echo "node is not start yet!"
+#判断输入的第一个变量是否是stop
+if [ "$1"x = "stop"x ]; then
+#是就执行下面代码
+	echo "stop"
+#获取端口7001占用的线程pid
+	pids=$(netstat -nlp | grep :8080 | awk '{print $7}' | awk -F"/" '{ print $1 }')
+#循环得到的结果
+	for pid in $pids
+	do
+	 echo  $pid
+#结束线程
+	 kill -9  $pid
+	done
+#不是就执行启动
 else
-  echo "node stop ======"
-  /bin/kill `/bin/cat $PID_FILE`
-  /bin/rm -rf $PID_FILE
-  if [ $? -eq 0 ];then
-    echo "node stopped successfully!"
-  else
-    echo "node stopped failed!"
-  fi
+	echo "start"
+        cd  /home/admin/test-node-egg/
+	 npm start
+        echo "start ok"
 fi
-}
-
-case $ACTION in
-start)
-        start
-;;
-stop)
-        stop
-;;
-reload)
-        stop
-        /bin/sleep 3
-        start
-;;
-*)
-    echo "$0 Usage: [start|stop|reload]"
-;;
-esac
