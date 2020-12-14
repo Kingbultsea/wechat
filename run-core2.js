@@ -452,7 +452,7 @@ function start () {
         console.log('Public number article push')
         const userId = msg.FromUserName
         bot._getmpData(userId).then(article => {
-          console.log(article.length, ' - lengthArticle')
+
           try {
             let time = 1000
             for (let i of article) {
