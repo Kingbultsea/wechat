@@ -12,6 +12,12 @@ let url = null
 let isLogin = false
 let loginTime = 0
 
+function AWAIT () {
+  return new Promise(resolve => {
+    setTimeout(resolve, 2000)
+  })
+}
+
 let reload
 // fs.unlinkSync('./sync-data.json')
 // try {
@@ -42,8 +48,7 @@ const unionAccpeter = [
     '雪松普惠', '雪松普惠服务平台',
     '雪松产投',
     'IN天府',
-    '松赢宝', '雪松灵水小镇', '雪松社区', '君华物业',	'湖南家园南宁分公司', '广州市庆德物业管理有限公司', '君华新城物业服务中心',	'雪松文旅',	'独克宗花巷',	'大研花巷',	'西塘花巷',	'雪松大宗',	'齐翔腾达',	'雪松招聘'], accepter: ['雪松新媒体监测']},
-  { name: ['雪松控股'], accepter: ['控股']}
+    '松赢宝', '雪松灵水小镇', '雪松社区', '君华物业',	'湖南家园南宁分公司', '广州市庆德物业管理有限公司', '君华新城物业服务中心',	'雪松文旅',	'独克宗花巷',	'大研花巷',	'西塘花巷',	'雪松大宗',	'齐翔腾达',	'雪松招聘'], accepter: ['雪松新媒体监测'] }
 ]
 
 function start () {
@@ -191,17 +196,18 @@ function start () {
       })
 
       for (let i in bot.contacts) {
-        setTimeout(() => {
+        setTimeout(async () => {
           for (let i2 of unionAccpeter) {
             // console.log(i2, bot.contacts[i].OrignalNickName, i2.accepter[0])
-            if (i2.name.includes(from) && bot.contacts[i].OrignalNickName === i2.accepter[0]) { // .OrignalRemarkName 是人的名称
-              console.log('push to users')
-              bot.sendMsg(`推文标题：\r\n    ${data.Title || title}\r\n\r\n推文主体：\r\n    ${sentor}\r\n\r\n推文警报：\r\n${warningContent}\r\n\r\n推送时间:\r\n    ${date}\r\n\r\n推文链接：${data.Url}`, bot.contacts[i].UserName)
-                .catch(err => {
-                  // bot.emit('error', err)
-                })
-              // 仅发送一次
-              return
+            for (let i3 of i2.accepter) {
+              await AWAIT()
+              if (i2.name.includes(from) && bot.contacts[i].OrignalNickName === i3) { // .OrignalRemarkName 是人的名称
+                console.log('push to users')
+                bot.sendMsg(`推文标题：\r\n    ${data.Title || title}\r\n\r\n推文主体：\r\n    ${sentor}\r\n\r\n推文警报：\r\n${warningContent}\r\n\r\n推送时间:\r\n    ${date}\r\n\r\n推文链接：${data.Url}`, bot.contacts[i].UserName)
+                  .catch(err => {
+                    // bot.emit('error', err)
+                  })
+              }
             }
           }
           // if (bot.contacts[i].OrignalRemarkName === accepter) {
