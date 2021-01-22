@@ -14,7 +14,7 @@ let loginTime = 0
 
 function AWAIT () {
   return new Promise(resolve => {
-    setTimeout(resolve, 2000)
+    setTimeout(resolve, 12000)
   })
 }
 
@@ -200,12 +200,12 @@ function start () {
           // console.log(i2, bot.contacts[i].OrignalNickName, i2.accepter[0])
           for (let i3 of i2.accepter) {
             if (i2.name.includes(from) && bot.contacts[i].OrignalNickName === i3) { // .OrignalRemarkName 是人的名称
-              await AWAIT()
               console.log('push to users')
               bot.sendMsg(`推文标题：\r\n    ${data.Title || title}\r\n\r\n推文主体：\r\n    ${sentor}\r\n\r\n推文警报：\r\n${warningContent}\r\n\r\n推送时间:\r\n    ${date}\r\n\r\n推文链接：${data.Url}`, bot.contacts[i].UserName)
                 .catch(err => {
                   // bot.emit('error', err)
                 })
+              await AWAIT()
             }
           }
         }
