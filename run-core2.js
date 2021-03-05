@@ -14,7 +14,7 @@ let loginTime = 0
 
 function AWAIT () {
   return new Promise(resolve => {
-    setTimeout(resolve, 12000)
+    setTimeout(resolve, 22000)
   })
 }
 
