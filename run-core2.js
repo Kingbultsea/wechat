@@ -14,7 +14,7 @@ let loginTime = 0
 
 function AWAIT () {
   return new Promise(resolve => {
-    setTimeout(resolve, 22000)
+    setTimeout(resolve, 5000)
   })
 }
 
@@ -131,7 +131,7 @@ function start () {
 
   function analyzeContent (data, msg) {
     axios.get(data.Url).then(async res => {
-      const keyGroups = await db.select('swdata')
+      // const keyGroups = await db.select('swdata')
       /* ['雪松控股', '张劲', '张主席', '张老板', '创始人', '主席', '董事局主席', '董事长', '政协委员', '总商会副会长',
           '习近平', '李克强', '李希', '马兴瑞', '张硕辅', '温国辉', '周亚伟', '齐翔腾达', '希努尔', '雪松国际信托', '雪松信托', '大金所',
           '大连金融资产交易所', '正勤金融', '雪松普惠', '轻松盈', '广州证行互联网金融信息服务有限公司',
@@ -151,20 +151,20 @@ function start () {
 
       let countKeys = []
 
-      keyGroups.forEach(v => {
-        if (content.includes(v.word)) {
-          const reg = new RegExp(v.word, 'g')
-          let times = 0
-          while (true) {
-            const r = reg.exec(content)
-            if (!r) {
-              break
-            }
-            times += 1
-          }
-          countKeys.push({ key: v.word, times, count: v.count + times, id: v.id })
-        }
-      })
+      // keyGroups.forEach(v => {
+      //   if (content.includes(v.word)) {
+      //     const reg = new RegExp(v.word, 'g')
+      //     let times = 0
+      //     while (true) {
+      //       const r = reg.exec(content)
+      //       if (!r) {
+      //         break
+      //       }
+      //       times += 1
+      //     }
+      //     countKeys.push({ key: v.word, times, count: v.count + times, id: v.id })
+      //   }
+      // })
 
       let time = 1000
       const date = dateFormat(+(msg.CreateTime + '000'), 'yy年MM月d日hh时mm分s秒')
@@ -188,12 +188,12 @@ function start () {
       let warningContent = countKeys.length === 0 ? '    敏感词：无' : countKeys.join('\r\n')
 
       // 数据库插入
-      db.insert('lsdata', {
-        date: +msg.CreateTime,
-        user: sentor,
-        url: data.Url,
-        warning: warningContent
-      })
+      // db.insert('lsdata', {
+      //   date: +msg.CreateTime,
+      //   user: sentor,
+      //   url: data.Url,
+      //   warning: warningContent
+      // })
 
       for (let i in bot.contacts) {
         for (let i2 of unionAccpeter) {
@@ -317,9 +317,9 @@ router.get('/nowdata', (ctx, next) => {
 })
 
 router.get('/lsdata', async (ctx, next) => {
-  let dbData
+  let dbData = []
   try {
-    dbData = await db.select('lsdata')
+    // dbData = await db.select('lsdata')
   } catch (e) {
     console.log(e)
     ctx.body = {
@@ -345,18 +345,18 @@ router.get('/lsdata', async (ctx, next) => {
 router.post('/add/word', async (ctx, next) => {
   const data = ctx.request.body.content.split(',')
   for (let i of data) {
-    db.insert('swdata', {
-      word: i,
-      date: parseInt(new Date().getTime() / 1000),
-      count: 0
-    })
+    // db.insert('swdata', {
+    //   word: i,
+    //   date: parseInt(new Date().getTime() / 1000),
+    //   count: 0
+    // })
   }
   ctx.body = { msg: 'success' }
 })
 
 router.get('/get/word', async (ctx, next) => {
-  const data = await db.select('swdata')
-  ctx.body = data
+  // const data = await db.select('swdata')
+  ctx.body = 'null' // data
 })
 console.log('start in 8080')
 app.use(router.routes())
