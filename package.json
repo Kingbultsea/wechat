@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "ali-rds": "^3.3.0",
-    "axios": "^0.15.3",
+    "axios": "^0.21.2",
     "bl": "^1.1.2",
     "child_process": "^1.0.2",
     "debug": "^2.2.0",
