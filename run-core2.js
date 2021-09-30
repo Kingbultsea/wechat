@@ -142,8 +142,7 @@ function start () {
       const title = /<h1\s*class\=\".*\"\s*id\=\"activity-name\">(.+?)<\/h1>/.exec(res.data.replace(/\s+/g, ''))[1]
 
       // 从哪推送
-      const _from = /<ahref="javascript:void\(0\);"id="js_name">(.+?)<\/a>/.exec(res.data.replace(/\s+/g, ''))
-      const from = _from[1].replace(/<\/?.+?>/g, '') // 删除标签
+      const from = /<ahref="javascript:void\(0\);"class="weui-wa-hotarea"id="js_name">(.+?)<\/a>/.exec(res.data.replace(/\s+/g, ''))[1]
       console.log('push', from)
       // let accepter = ''
 
