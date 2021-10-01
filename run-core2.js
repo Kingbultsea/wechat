@@ -138,7 +138,7 @@ function start () {
           '三个万亿', '三万亿', '水密舱', '100%誓言', '强根造血', '毕节30亿扶贫', '旅游扶贫', '文旅扶贫', '产业扶贫', '六大产业集团', '供通云', '雪松社区', '雪松系',
           '李克强', '汪洋', '王沪宁', '赵乐际', '韩正', '栗战书'] */ // 抓取推送文章的关键词
 
-      const content = /<divclass="rich_media_content"id="js_content".*?>(.+?)<\/div>/g.exec(res.data.replace(/\s+/g, ''))[1]
+      // const content = /<divclass="rich_media_content"id="js_content".*?>(.+?)<\/div>/g.exec(res.data.replace(/\s+/g, ''))[1]
       const title = /<h1\s*class\=\".*\"\s*id\=\"activity-name\">(.+?)<\/h1>/.exec(res.data.replace(/\s+/g, ''))[1]
 
       // 从哪推送

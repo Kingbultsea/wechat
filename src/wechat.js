@@ -173,6 +173,7 @@ class Wechat extends WechatCore {
           // UserName
           // nickName
           if (userId === i.UserName) {
+            console.log(i)
             return i.MPArticleList
             /* for (let i2 of i.MPArticleList) {
               console.log(i2, '小的object')
@@ -183,7 +184,7 @@ class Wechat extends WechatCore {
             } */
           }
         }
-        console.log('获取mp信息')
+        console.log('获取mp信息', userId, data)
       })
   }
 
