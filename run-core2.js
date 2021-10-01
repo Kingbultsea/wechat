@@ -139,10 +139,21 @@ function start () {
           '李克强', '汪洋', '王沪宁', '赵乐际', '韩正', '栗战书'] */ // 抓取推送文章的关键词
 
       // const content = /<divclass="rich_media_content"id="js_content".*?>(.+?)<\/div>/g.exec(res.data.replace(/\s+/g, ''))[1]
-      const title = /<h1\s*class\=\".*\"\s*id\=\"activity-name\">(.+?)<\/h1>/.exec(res.data.replace(/\s+/g, ''))[1]
+      const _title =  /<h1\s*class\=\".*\"\s*id\=\"activity-name\">(.+?)<\/h1>/.exec(res.data.replace(/\s+/g, ''))
+      const title = (_title && _title[1]) ? _title[1] : '无标题'
+
+      let from = ''
+      try {
+        from = /<ahref="javascript:void\(0\);"class="weui-wa-hotarea"id="js_name">(.+?)<\/a>/.exec(res.data.replace(/\s+/g, ''))[1]
+      } catch (e) {
+        try {
+          from = /<strong.*?class="account_nickname_inner">(.+?)<\/strong>/.exec(res.data.replace(/\s+/g, ''))[1]
+        } catch (e) {
+          from = '雪松控股'
+        }
+      }
 
       // 从哪推送
-      const from = /<ahref="javascript:void\(0\);"class="weui-wa-hotarea"id="js_name">(.+?)<\/a>/.exec(res.data.replace(/\s+/g, ''))[1]
       console.log('push', from)
       // let accepter = ''
 
